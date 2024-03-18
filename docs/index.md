@@ -51,6 +51,8 @@ Sometimes you'll want an item to appear only when *deselected*, and similarily o
 "Deselected" -- Applies the value when the icon is deselected (i.e. not pressed)
 "Selected" -- Applies the value when the icon is selected (i.e. pressed)
 "Viewing" -- Formerly known as Hovering, applies the value when a cursor is hovering above, a controller highlighting, or touchpad (mobile) long-pressing (but before releasing) an icon
+"Hovering" -- Applies the value when a cursor, finger or controller is hovering over the icon
+"Pressing" -- Applies the value when a cursor, finger or controller is pressing down on the icon
 ```
 
 !!! info
@@ -62,6 +64,9 @@ Icon.new()
 	:setLabel("Closed", "deselected")
 	:setLabel("Open", "selected")
 	:setLabel("Viewing", "viewing")
+	:setLabel("Closed", "Deselected")
+	:setLabel("Open", "Selected")
+	:setLabel("Hovering", "Hovering")
 ```
 
 <a><img src="https://i.imgur.com/0QrDmi6.gif" width="50%"/></a>
@@ -72,5 +77,5 @@ icon:autoDeselect(false)
 ```
 
 You can enhance icons further with features like themes, dropdowns and menus, or by binding GuiObjects and KeyCodes to their toggle. This and much more can be achieved by exploring the [Feature Guide] and [Icon API].
-
 Have a question or issue? Feel free to reach out at the [TopbarPlus DevForum Thread].
+You may wish to enhance icons further with features like themes, dropdowns and menus, or by binding GuiObjects and KeyCodes to their toggle. This and much more can be achieved by exploring the [Feature Guide] and [Icon API].
