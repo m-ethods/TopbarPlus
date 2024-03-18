@@ -1,7 +1,9 @@
 [package]
 name = "m-ethods/topbarplus"
+description = "Topbar fork"
 version = "3.0.0"
-registry = "https://github.com/m-ethods/TopbarPlus"
+license = "MIT"
+registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 
 [dependencies]
