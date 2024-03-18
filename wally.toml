@@ -1,7 +1,7 @@
 [package]
-name = "benho/topbarplus"
-version = "0.1.0"
-registry = "https://github.com/UpliftGames/wally-index"
+name = "m-ethods/topbarplus"
+version = "3.0.0"
+registry = "https://github.com/m-ethods/TopbarPlus"
 realm = "shared"
 
 [dependencies]
