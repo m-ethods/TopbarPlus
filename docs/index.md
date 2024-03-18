@@ -1,8 +1,9 @@
 [icon:setOrder]: https://1foreverhd.github.io/TopbarPlus/api/icon/#setorder
 [Feature Guide]: https://1foreverhd.github.io/TopbarPlus/features
-[Icon API]: https://1foreverhd.github.io/TopbarPlus/api/icon/
+[Icon API]: https://1foreverhd.github.io/TopbarPlus/api
+[TopbarPlus DevForum Thread]: https://devforum.roblox.com/t/topbarplus/1017485
 
-TopbarPlus is a module enabling the construction of dynamic topbar icons. These icons can be enhanced with features and methods, like themes, dropdowns and menus, to expand upon their appearance and behaviour.
+TopbarPlus is a module enabling the construction of dynamic topbar icons. These icons can be enhanced with features and methods like themes, dropdowns and menus to expand upon their appearance and behaviour.
 
 TopbarPlus fully supports PC, Mobile, Tablet and Console, and comes with internal features such as 'overflows' to ensure icons remain within suitable bounds.
 
@@ -25,9 +26,20 @@ icon:setLabel("Label")
 
 These methods are 'chainable' therefore can alternatively be called by doing:
 ```lua
-local icon = Icon.new()
+Icon.new()
     :setImage(imageId)
     :setLabel("Label")
+```
+
+You may want to act upon nested icons. You can achieve this using ``:call``
+which returns the icon as the first argument within the function you pass:
+```lua
+Icon.new()
+    :setName("TestIcon")
+    :call(function(icon)
+        print(icon.name)
+        -- This will print 'TestIcon'!
+    end)
 ```
 
 !!! info
@@ -38,20 +50,32 @@ Sometimes you'll want an item to appear only when *deselected*, and similarily o
 ```lua
 "Deselected" -- Applies the value when the icon is deselected (i.e. not pressed)
 "Selected" -- Applies the value when the icon is selected (i.e. pressed)
+"Viewing" -- Formerly known as Hovering, applies the value when a cursor is hovering above, a controller highlighting, or touchpad (mobile) long-pressing (but before releasing) an icon
 "Hovering" -- Applies the value when a cursor, finger or controller is hovering over the icon
 "Pressing" -- Applies the value when a cursor, finger or controller is pressing down on the icon
 ```
 
-If no argument is specified, the value will be applied to both ``deselected`` and ``selected`` states. For example:
+!!! info
+    If no argument is specified, the value will be applied to all states
 
 ```lua
 Icon.new()
 	:setImage(4882429582)
+	:setLabel("Closed", "deselected")
+	:setLabel("Open", "selected")
+	:setLabel("Viewing", "viewing")
 	:setLabel("Closed", "Deselected")
 	:setLabel("Open", "Selected")
 	:setLabel("Hovering", "Hovering")
 ```
 
-<a><img src="https://i.imgur.com/z1oCYMQ.gif" width="50%"/></a>
+<a><img src="https://i.imgur.com/0QrDmi6.gif" width="50%"/></a>
 
+By default icons will deselect when another icon is selected. You can disable this behaviour doing:
+```lua
+icon:autoDeselect(false)
+```
+
+You can enhance icons further with features like themes, dropdowns and menus, or by binding GuiObjects and KeyCodes to their toggle. This and much more can be achieved by exploring the [Feature Guide] and [Icon API].
+Have a question or issue? Feel free to reach out at the [TopbarPlus DevForum Thread].
 You may wish to enhance icons further with features like themes, dropdowns and menus, or by binding GuiObjects and KeyCodes to their toggle. This and much more can be achieved by exploring the [Feature Guide] and [Icon API].
